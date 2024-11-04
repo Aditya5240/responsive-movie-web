@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Stop Movie</title>
+   
+    <link rel="stylesheet" href="woc.css" />
+    <link rel="icon" href="best.jpg" type="image/x-icon" />
+  </head>
+  <body>
+<div class="topnav" id="myTopnav">
+    <i style="font-size:24px"> &#127909;</i>
+    <a href="#home" class="active">Home</a>
+    <a href="#watchlist">Watchlist</a>
+    <a href="about.html">About</a>
+    <a href="index.html">Log-Out</a>
+    <div class="dropdown">
+        <button class="dropbtn">Genre <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <button onclick="fetchActionMovies()" class="But">Action</button>
+            <button onclick="fetchDramaMovies()" class="But">Drama</button>
+            <button onclick="fetchCrimeMovies()" class="But">Crime</button>
+            <button onclick="fetchThrillerMovies()" class="But">Thriller</button>
+            <button onclick="fetchRomanceMovies()" class="But">Romance</button>
+            <button onclick="fetchHorrorMovies()" class="But">Horror</button>
+        </div>
+    </div> 
+    <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+</div>
+
+
+    <div class="headers">
+      <div class="heading">
+        <h1>Welcome</h1>
+
+        <h4>Browse millions of movies. Explore now!!</h4>
+<br>
+        <input type="text" id="movieTitle" placeholder="   Enter movie title" class="bla-bla">
+        <button onclick="searchMovies()" id="buttonL" class="button1">Search</button>
+      </div>
+      <br />
+      <br>
+    </div>
+    <br>
+
+    <br>
+
+    <div id="search-results" class="movie-grid"></div>
+     
+
+  <div class="movieGrid4" id="movieGrid4">
+    <div class="moviecard4" id="moviecard4">
+      <div>
+        <img src="spiderman.jpg" alt="" class="moviePoster4" />
+      </div>
+      <br>
+        <div class="movie-info">
+          <br><br>
+          <a href="" class="Title"><h6>Spider-Man: No Way Home</h6></a>
+        </div>
+      </div>
+    </div>
+  </div> 
+    
+  <br>
+ 
+
+    <h2 class="header2">Trending Movies</h2>
+    <br />
+    <div class="movieGrid" id="movieGrid">
+      <div class="moviecard">
+        
+        <div >
+          <img src="spiderman.jpg" alt="" class="moviePoster"  onclick="showDetails()"/>
+        </div>
+        <div>
+          <div class="movie-info">
+            <br />
+            <a href="" class="Title"> <h6>Spider-Man: No Way Home</h6></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="header2">Top Rated Movies</h2>
+<br>
+    <div class="movieGrid2" id="movieGrid2">
+      <div class="moviecard2">
+        <div>
+          <img src="spiderman.jpg" alt="" class="moviePoster2" />
+        </div>
+        <div>
+          <div class="movie-info">
+            <br />
+            <a href="" class="Title"><h6>Spider-Man: No Way Home</h6></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+<br>
+    <h2 class="header2">Upcoming Movies</h2>
+<br>
+    <div class="movieGrid3" id="movieGrid3">
+      <div class="moviecard3">
+        <div>
+          <img src="spiderman.jpg" alt="" class="moviePoster3" />
+        </div>
+        <div>
+          <div class="movie-info">
+            <br />
+            <a href="" class="Title"><h6>Spider-Man: No Way Home</h6></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="footer">
+
+<div>
+        <i style="font-size:48px" id="Movie-icon"> &#127909;</i>
+        <h2 id="icon-footer" >One Stop Movie</h2>
+    </div>    
+
+    
+    </div>
+
+    <div id="movieResults"></div>
+    <script src="woc.js"></script>
+  </body>
+</html>

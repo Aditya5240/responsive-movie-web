@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/reset.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  <link href="images/favicon" type="image/png" rel="icon">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="js/respond.js"></script>
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Kenia&family=Pacifico&family=Poppins:wght@200;300;500&family=Young+Serif&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgb(9, 40, 57);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #details {
+      display: flex;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      color: white;
+    }
+
+    #poster {
+      flex: 1;
+    }
+
+    #poster img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px 0 0 8px;
+    }
+
+    #content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+    }
+
+    h2 {
+      color: #15d5f7;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #d8d2d2;
+      margin-bottom: 10px;
+    }
+
+    span {
+      color: #d8d2d2;
+      margin-right: 10px;
+    }
+
+    #details{
+        box-shadow: rgb(11, 151, 182) 0px 20px 30px -10px;
+        border: whitesmoke 1px dotted;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="details">
+      <div id="poster">
+        <img src="https://image.tmdb.org/t/p/w500${selectedMoviePoster}" alt="Movie Poster">
+      </div>
+      <div id="content">
+        <h2>${selectedMovieTitle}</h2>
+        <p><span>Release Date:</span>${selectedMovieReleaseDate}</p>
+        <p><span>Vote Average:</span>${selectedMovieRating}</p>
+        <p>${selectedMovieOverview}</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    const selectedMovieTitle = localStorage.getItem('selectedMovieTitle');
+    const selectedMovieOverview = localStorage.getItem('selectedMovieOverview');
+    const selectedMoviePoster = localStorage.getItem('selectedMoviePoster');
+    const selectedMovieRating = localStorage.getItem('selectedMovieRating');
+    const selectedMovieReleaseDate = localStorage.getItem('selectedMovieReleaseDate');
+    const selectedMovieVoteAverage = localStorage.getItem('selectedMovieVoteAverage');
+
+    if (selectedMovieTitle && selectedMovieOverview) {
+      const detailsDiv = document.getElementById('details');
+
+      detailsDiv.innerHTML = `
+        <div id="poster">
+          <img src="https://image.tmdb.org/t/p/w500${selectedMoviePoster}" alt="Movie Poster">
+        </div>
+        <div id="content">
+          <h2>${selectedMovieTitle}</h2>
+          <p><span>Release Date:</span>${selectedMovieReleaseDate}</p>
+          <p><span>Vote Average:</span>${selectedMovieRating}</p>
+          <p>${selectedMovieOverview}</p>
+         
+          
+        </div>
+      `;
+
+      detailsDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('https://image.tmdb.org/t/p/w500${selectedMoviePoster}')`;
+
+
+      localStorage.removeItem('selectedMovieRating');
+      localStorage.removeItem('selectedMovieTitle');
+      localStorage.removeItem('selectedMovieOverview');
+      localStorage.removeItem('selectedMoviePoster');
+      localStorage.removeItem('selectedMovieReleaseDate');
+      localStorage.removeItem('selectedMovieVoteAverage');
+    } else {
+      alert('Invalid details. Please go back to the main page.');
+    }
+
+ 
+  </script>
+</body>
+
+</html>
